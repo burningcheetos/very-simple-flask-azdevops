@@ -11,4 +11,4 @@ def hello():
     return 'Hello, World'
 
 # export FLASK_ENV=app.py
-app.run()
+app.run(host='0.0.0.0', port=8000)
