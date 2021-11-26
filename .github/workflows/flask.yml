@@ -8,7 +8,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: verysimpleflaskapp 
-  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  AZURE_WEBAPP_PACKAGE_PATH: .
   
 jobs:
   build:
@@ -35,12 +35,12 @@ jobs:
     steps:
       - uses: azure/login@v1
         with:
-          creds: ${{secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Azure WebApp
         uses: Azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          package: ${{env.AZURE_WEBAPP_PACKAGE_PATH }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
       - name: logout
         run: |
           az logout
