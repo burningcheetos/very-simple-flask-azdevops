@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 
 app = Flask(__name__)
@@ -8,6 +9,9 @@ def index():
 
 @app.route('/hello')
 def hello():
+    env = os.environ.get('ENVIRONMENT')
+    if env:
+        return env
     return 'Hello, World'
 
 # export FLASK_ENV=app.py
