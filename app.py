@@ -14,5 +14,10 @@ def hello():
         return env
     return 'Hello, World'
 
+@app.route('/forceerror')
+def err():
+    print('force an error')
+    raise RuntimeError('Oops we got an error here')
+
 # export FLASK_ENV=app.py
 app.run(host='0.0.0.0', port=8000)
